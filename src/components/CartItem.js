@@ -1,6 +1,6 @@
 import React from "react";
 
-const CartItem = ({ data, delFromCart, moreProduct }) => {
+const CartItem = ({ data, delFromCart, moreProduct, total }) => {
   let { id, name, price, quantity } = data;
 
   return (
@@ -10,7 +10,7 @@ const CartItem = ({ data, delFromCart, moreProduct }) => {
       <div className="item-quantity">
         <p>{quantity}</p>
         <article>
-          <span onClick={() => moreProduct(id)}>
+          <span onClick={() => moreProduct(id)} className="btn-quantity">
             <svg
               id="Flat"
               xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ const CartItem = ({ data, delFromCart, moreProduct }) => {
               />
             </svg>
           </span>
-          <span onClick={() => delFromCart(id)}>
+          <span onClick={() => delFromCart(id)} className="btn-quantity">
             <svg viewBox="0 0 256 256" className="delete">
               <path
                 d="M215.39111,163.06152A8.00015,8.00015,0,0,1,208,168H48a7.99981,7.99981,0,0,1-5.65674-13.65674l80-80a8,8,0,0,1,11.31348,0l80,80A7.99982,7.99982,0,0,1,215.39111,163.06152Z"

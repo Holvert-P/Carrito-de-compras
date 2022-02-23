@@ -1,13 +1,12 @@
 // import React, { useState } from "react";
 import CartItem from "./CartItem";
 const Cart = ({ cart, clearCart, delFromCart, moreProduct, setIsVisible }) => {
-  // const [total, setTotal] = useState(0);
+  let total = 0;
+
+  cart.map((item) => (total += item.price * item.quantity));
   return (
     <div className="cart">
       <h2 className="subtitle">Carrito</h2>
-      <button onClick={() => setIsVisible(false)} className="btn-close">
-        X
-      </button>
       <article className="box">
         <button onClick={clearCart} className="clear-btn">
           Clear Cart
@@ -16,7 +15,7 @@ const Cart = ({ cart, clearCart, delFromCart, moreProduct, setIsVisible }) => {
           <p>Product</p>
           <p>Price</p>
           <p>Quantity</p>
-          <p>Total</p>
+          <p>Sub Total</p>
           <p></p>
         </div>
         {cart.length > 0 ? (
@@ -26,6 +25,7 @@ const Cart = ({ cart, clearCart, delFromCart, moreProduct, setIsVisible }) => {
               data={item}
               delFromCart={delFromCart}
               moreProduct={moreProduct}
+              total={cart.total}
             />
           ))
         ) : (
@@ -34,9 +34,12 @@ const Cart = ({ cart, clearCart, delFromCart, moreProduct, setIsVisible }) => {
           </div>
         )}
       </article>
-      <article>
-        <p></p>
-      </article>
+      {/* <article> */}
+      <p className="total-buy">Total = {total}</p>
+      {/* </article> */}
+      <button onClick={() => setIsVisible(false)} className="btn-close">
+        Back to store
+      </button>
     </div>
   );
 };

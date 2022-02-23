@@ -7,14 +7,21 @@ import ProductItem from "./ProductItem";
 
 import { TYPES } from "../actions/shoppingActions";
 import Cart from "./Cart";
+import Message from "./Message";
 
 const ShopingCart = () => {
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-  const { products, cart } = state;
+  const { products, cart, total } = state;
   const [isVisible, setIsVisible] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
 
   const addToCart = (id) => {
+    setIsAdded(true);
+
     dispatch({ type: TYPES.ADD_TO_CART, payload: id });
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 500);
   };
   const delFromCart = (id, all = false) => {
     if (all) {
@@ -30,6 +37,7 @@ const ShopingCart = () => {
     dispatch({ type: TYPES.AMOUNT_CART, payload: id });
     console.log(id);
   };
+
   return (
     <div className="container">
       <header>
@@ -66,6 +74,7 @@ const ShopingCart = () => {
           />
         )}
       </section>
+      {isAdded && <Message />}
     </div>
   );
 };
