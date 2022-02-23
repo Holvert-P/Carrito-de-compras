@@ -11,7 +11,7 @@ import Message from "./Message";
 
 const ShopingCart = () => {
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-  const { products, cart, total } = state;
+  const { products, cart } = state;
   const [isVisible, setIsVisible] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
