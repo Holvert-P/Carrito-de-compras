@@ -26,6 +26,11 @@ header {
   width: 100vw;
   z-index: 999;
 }
+.cart .subtitle {
+  font-size: 2rem;
+  padding: 0 2rem;
+  padding-top: 1rem;
+}
 
 .box {
   padding: 1rem;
@@ -194,10 +199,7 @@ button {
   margin: 5rem auto;
   background-color: #7aa2ec;
 }
-.cart .subtitle {
-  font-size: 2rem;
-  padding: 1rem;
-}
+
 .total-buy {
   margin: auto;
   border-top: thin solid #ccc;
@@ -242,5 +244,8 @@ button {
   .message-box {
     bottom: 40%;
     left: 30%;
+  }
+  .cart .subtitle {
+    padding: 1rem 1rem 0 1rem;
   }
 }

@@ -6,7 +6,7 @@ const Cart = ({ cart, clearCart, delFromCart, moreProduct, setIsVisible }) => {
   cart.map((item) => (total += item.price * item.quantity));
   return (
     <div className="cart">
-      <h2 className="subtitle">Carrito</h2>
+      <h2 className="subtitle">Shopping cart</h2>
       <article className="box">
         <button onClick={clearCart} className="clear-btn">
           Clear Cart
